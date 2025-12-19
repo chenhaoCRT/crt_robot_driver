@@ -23,10 +23,9 @@ void do_recv_encoder_fromMCU(const crt_driver::crt_encoder::ConstPtr& msg)
 {
     /*获取编码器值*/
     RobotKinematics_model.LeftWheel.encoder_count = msg->leftEncoder;
-    RobotKinematics_model.RightWheel.encoder_count = msg->leftEncoder;
+    RobotKinematics_model.RightWheel.encoder_count = msg->rightEncoder;
 
-    /*正运动学解算计算机器人轮速、线速度和角速度*/
-    RobotKinematics_model.forward_kinematics();
+    
 }
 
 int main(int argc, char **argv)
@@ -54,7 +53,8 @@ int main(int argc, char **argv)
         /*计算时间差*/
         current_time = ros::Time::now();
         double dt = (current_time - last_time).toSec();
-        
+        /*正运动学解算计算机器人轮速、线速度和角速度*/
+        RobotKinematics_model.forward_kinematics();
         /*更新机器人位姿*/
         RobotKinematics_model.update_pose(dt);
         
