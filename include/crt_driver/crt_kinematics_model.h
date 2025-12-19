@@ -24,7 +24,7 @@ crt_kinematics_model.h
 #define QUADRATURE_MULTIPLIER   4 
 
 /*轮子半径，单位 m*/
-#define WHEEL_RADIUS            0.019
+#define WHEEL_RADIUS            0.023
 /*轴距， 单位 m*/
 #define TRACK_WIDTH             0.22
 

@@ -19,7 +19,7 @@ current_right = 0
 # ================= 参数 =================
 SPD_FWD = 120
 SPD_BACK = -120
-SPEED_STEP = 4   # 平滑控制步长
+SPEED_STEP = 6   # 平滑控制步长
 TURN_GAIN = -0   # 鼠标灵敏度
 KEY_TURN = 70    # A/D 转向增量
 MAX_SPEED = 150

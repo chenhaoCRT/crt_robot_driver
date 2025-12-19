@@ -62,6 +62,7 @@ void Kinematics_model::update_pose(double dt)
     this->pose_x += this->delta_x;
     this->pose_y += this->delta_y;
     this->pose_theta += this->delta_theta;
+    pose_theta = atan2(sin(pose_theta), cos(pose_theta));
 }
 
 
