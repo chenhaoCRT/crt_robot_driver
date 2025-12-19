@@ -12,7 +12,7 @@ crt_driverBase节点实现文件
 #include "nav_msgs/Odometry.h"
 #include "tf/transform_broadcaster.h"
 #include "crt_driver/crt_encoder.h"
-#include "crt_driver/crt_ kinematics_model.h"
+#include "crt_driver/crt_kinematics_model.h"
 
 
 
@@ -44,10 +44,10 @@ int main(int argc, char **argv)
     /*记录时间*/
     ros::Time current_time, last_time;
     current_time = ros::Time::now();
-    last_time = current_time
+    last_time = current_time;
 
     ros::Rate loop_rate(50);
-    while (ros::OK()) {
+    while (ros::ok()) {
 
         ros::spinOnce();  
 

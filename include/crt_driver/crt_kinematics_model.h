@@ -28,7 +28,7 @@ crt_kinematics_model.h
 /*轴距， 单位 m*/
 #define TRACK_WIDTH             0.22
 
-#define M_PI    3.141
+
 
 
 

@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   serial
   std_msgs
   message_generation
+  tf
 )
 
 ###################################
@@ -32,7 +33,7 @@ generate_messages(
 ###################################
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp rospy serial std_msgs message_runtime
+  CATKIN_DEPENDS roscpp rospy serial std_msgs message_runtime tf
 )
 
 ###########
@@ -49,12 +50,26 @@ add_executable(crt_driverBase
   src/crt_serial_protocol.cpp
 )
 
-## ⭐ 非常重要：让节点依赖消息生成
 add_dependencies(crt_driverBase
   ${${PROJECT_NAME}_EXPORTED_TARGETS}
   ${catkin_EXPORTED_TARGETS}
 )
 
 target_link_libraries(crt_driverBase
+  ${catkin_LIBRARIES}
+)
+
+
+add_executable(crt_odom_pub
+  src/crt_odom_pub.cpp
+  src/crt_kinematics_model.cpp
+)
+
+add_dependencies(crt_odom_pub
+  ${${PROJECT_NAME}_EXPORTED_TARGETS}
+  ${catkin_EXPORTED_TARGETS}
+)
+
+target_link_libraries(crt_odom_pub
   ${catkin_LIBRARIES}
 )
