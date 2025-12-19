@@ -45,6 +45,9 @@ class Wheel_speed
         /*轮子线速度，单位：m/s*/
         double linearSpeed_mps;
 
+        /*构造函数*/
+        Wheel_speed():encoder_count(0), rotationalSpeed_rps(0.0), linearSpeed_mps(0.0) {};
+
         /*通过编码器数值计算转速、线速度*/
         void encoder_to_speed(void);
 
@@ -59,9 +62,39 @@ class Kinematics_model
 
         /*线速度，单位 m/s*/
         double linearVelocity_mps; 
-         
+
+        /*x_y方向速度*/
+        double velocity_x_mps;
+        double velocity_y_mps;
+
         /*角速度，单位 rad/s*/  
-        double angularVelocity_radps;   
+        double angularVelocity_radps; 
+        
+        /*机器人位姿*/
+        double pose_x;
+        double pose_y;
+        double pose_theta;
+
+        double delta_x;
+        double delta_y;
+        double delta_theta;
+
+
+        /*构造函数*/
+        Kinematics_model():pose_x(0.0), pose_y(0.0), pose_theta(0.0) {};
+
+
+        /*正运动学解算*/
+        void forward_kinematics(void);
+
+
+        /*位姿更新*/
+        void update_pose(double dt);
+
+        /*逆运动学解算*/
+        void inverse_kinematics(double linearVelocity_mps, double angularVelocity_radps, double &leftWheelSpeed_mps, double &rightWheelSpeed_mps);
+
+
 
 };
 
