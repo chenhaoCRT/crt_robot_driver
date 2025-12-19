@@ -20,6 +20,7 @@ crt_driverBase节点主程序
 int LSpeed_toMCU = 0;
 int RSpeed_toMCU = 0;
 
+/*接收到控制编码器消息回调*/
 void do_recv_encoder(const crt_driver::crt_encoder::ConstPtr& msg)
 {
     LSpeed_toMCU = msg->leftEncoder;
